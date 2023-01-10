@@ -6,10 +6,10 @@ import j11_접근지정자.default1.J11_StudentDefault;
 public class J11_StudentMain {
 
    public static void main(String[] args) {
-      J11_Student s1 = new J11_Student();
+//      J11_Student s1 = new J11_Student();
 //      s1.name = "박은빈";
       
-      s1.printInfo();
+//      s1.printInfo();
       
       // 해당 생성자도 public 이어야 생성가능 
       J11_StudentDefault s2 = new J11_StudentDefault();

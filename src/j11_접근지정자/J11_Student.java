@@ -1,9 +1,16 @@
 package j11_접근지정자;
 
 public class J11_Student {
-
+	
+	// alt + shift + s generate 단축키 
    private String name;
    private int age;
+   
+   public J11_Student(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
    
    public String getName() {
       return name;
