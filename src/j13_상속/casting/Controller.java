@@ -16,7 +16,7 @@ public class Controller {
 		boolean flag = true;
 		String select = null;
 		
-		while(flag)	{
+       		while(flag)	{
 			view.show();
 			System.out.print("명령 입력: ");
 			select = scanner.nextLine();
