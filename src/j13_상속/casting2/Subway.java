@@ -6,7 +6,7 @@ public class Subway extends Transportation{
 	public void go() {
 		System.out.println("지하철을 타고 출발");
 	}
-	
+	 
 	@Override
 	public void stop() {
 		System.out.println("지하철을 타고 도착");

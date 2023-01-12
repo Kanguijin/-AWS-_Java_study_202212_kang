@@ -2,9 +2,10 @@ package j12_배열.di;
 
 public class Test_A {
 	
+
 	private final Test_B tb; // 부품 교체 필요 시 final 해제 
 	
-	public Test_A(Test_B tb) { // required-argument(매개변수) constructor no-argument all-argument 
+	public Test_A(Test_B tb) { // required-argument constructor， no-argument， all-argument 
 		this.tb = tb;
 	}
 	

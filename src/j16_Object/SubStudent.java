@@ -12,10 +12,10 @@ public class SubStudent {
 		this.age = age;
 	}
 	
-	
 	@Override
 	public int hashCode() {
 		
-		return Objects.hash(name,age);
+		return Objects.hash(name,age); 
+		
 	}
 }

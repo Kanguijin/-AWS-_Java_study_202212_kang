@@ -1,5 +1,7 @@
 package j01_출력;
 
+import j17_스태틱.싱글톤.KIA;
+
 public class HelloJava {
 	// 주석: 코드 내부에 메모를 할 때 사용함. 
 	// 컴파일 시에 무시됨. 
@@ -22,6 +24,10 @@ public class HelloJava {
 		System.out.println("주소: 부산 연제구 연산동");
 		System.out.println("연락처: 010-6554-2381");
 		System.out.println("수업: AWS기반 공공빅데이터 활용 웹개발자 양성");
+		
+		System.out.println();
+		
+		KIA.getInstance().printCompanyName();
 	}
 	
 }
