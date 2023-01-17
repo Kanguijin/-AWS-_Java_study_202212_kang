@@ -1,14 +1,19 @@
 package j21_예외;
 
+import java.nio.file.Files;
+import java.sql.DriverManager;
+
 public class ArrayException {
 	public static void main(String[] args) {
+		
+		
 		Integer[] nums = {1, 2, 3, 4, 5};
 		
+		for(int i = 0; i < 6; i++) {
+			System.out.println(nums[i]);
+		}
 		try {
-			throw new NullPointerException();
-//			for(int i = 0; i < 6; i++) {
-//				System.out.println(nums[i]);
-//			}
+//			throw new NullPointerException();
 		} catch (IndexOutOfBoundsException e) {
 			System.out.println("예외 처리함");
 		} catch (NullPointerException e) {
