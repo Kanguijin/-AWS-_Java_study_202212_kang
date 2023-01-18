@@ -1,11 +1,8 @@
 package j21_예외;
 
-import java.nio.file.Files;
-import java.sql.DriverManager;
 
 public class ArrayException {
 	public static void main(String[] args) {
-		
 		
 		Integer[] nums = {1, 2, 3, 4, 5};
 		
