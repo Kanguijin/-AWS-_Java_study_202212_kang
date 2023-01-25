@@ -20,7 +20,7 @@ insert into course_mst values (4, 1, 3, 3);
 select * from course_mst;
 
 insert into university_mst values(1, '서울대');
-insert into university_mst values(2, '부산대');
+insert into university_mst values(2, '부산대');author_mst
 insert into university_mst values(3, '경상대');
 
 select * from university_mst;

@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 @Builder // AllArgsConstructor 포함
 public class User {
+	private int userId;
 	private String username;
 	private String password;
 	private String name;
