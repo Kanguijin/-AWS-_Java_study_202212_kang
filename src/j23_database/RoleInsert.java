@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class RoleInsert {
-	private DBConnectionMgr pool; // java와 mySQL연결 
+	private DBConnectionMgr pool; 
 	
 	public RoleInsert() {
 		pool = DBConnectionMgr.getInstance();
@@ -16,9 +16,9 @@ public class RoleInsert {
 		int successCount = 0;
 		
 		String sql = null;
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		
+		Connection con = null; // 데이터베이스 연결
+		PreparedStatement pstmt = null; // 쿼리 실행 
+		ResultSet rs = null;
 		try {
 			con = pool.getConnection();
 			sql = "insert into role_mst values (0, ?)";
@@ -29,7 +29,7 @@ public class RoleInsert {
 			
 			int newKey = 0;
 			
-			ResultSet rs = pstmt.getGeneratedKeys();
+			rs = pstmt.getGeneratedKeys();
 			if(rs.next())	 {
 				newKey = rs.getInt(1);
 			}
@@ -38,6 +38,8 @@ public class RoleInsert {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
 		}
 		
 		 

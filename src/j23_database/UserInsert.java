@@ -71,7 +71,9 @@ public class UserInsert {
 			sql = "insert into role_dtl values";
 			
 			for(int i = 0; i < roles.size(); i++) {
+				
 				sql += "(0, ?, ?)";
+				
 				if(i < roles.size() - 1) {
 					sql += ",";
 				}

@@ -9,6 +9,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import usermanagement.entity.RoleDtl;
 import usermanagement.entity.User;
 import usermanagement.repository.UserRepository;
 
@@ -47,10 +48,12 @@ public class UserService {
       User user = gson.fromJson(userJson, User.class);
       System.out.println("서비스에 넘어옴! User 객체로 변환");
       System.out.println(user);
+      
       if(duplicatedUsername(user.getUsername())) {
     	  response.put("error", "이미 사용중인 사용자 이름입니다.");
     	  return response;
       }
+      
       if(duplicatedEmail(user.getEmail())) {
     	  response.put("error", "이미 가입된 이메일입니다.");
     	  return response;
@@ -64,6 +67,13 @@ public class UserService {
       
       userRepository.saveUser(user);
       
+      RoleDtl roleDtl = RoleDtl.builder()
+    		  .roleId(3)
+    		  .userId(user.getUserId())
+    		  .build();
+      
+     userRepository.saveRoleDtl(roleDtl);
+     
       response.put("ok", "회원가입 성공.");
       
       return response;
