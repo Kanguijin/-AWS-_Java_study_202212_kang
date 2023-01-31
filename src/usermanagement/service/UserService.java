@@ -72,7 +72,7 @@ public class UserService {
     		  .userId(user.getUserId())
     		  .build();
       
-     userRepository.saveRoleDtl(roleDtl);
+     userRepository.saveRoleDtl(roleDtl); 
      
       response.put("ok", "회원가입 성공.");
       

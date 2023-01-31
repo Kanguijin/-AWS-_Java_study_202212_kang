@@ -15,5 +15,8 @@ public class Main {
 			}
 		}; // 구현된 클래스 객체 
 		System.out.println(c2.calc(200, 100));
+		
+		Calculator c3 = (x, y) -> x * y;
+		System.out.println(c3.calc(20, 3));
 	}
 }

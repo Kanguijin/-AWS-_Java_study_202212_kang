@@ -9,7 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import j20_JSON.builder.User;
+import usermanagement.entity.User;
+
+
 
 public class UserInsert {
 	
