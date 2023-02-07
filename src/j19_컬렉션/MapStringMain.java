@@ -17,6 +17,7 @@ public class MapStringMain {
 		
 		System.out.println(strMap);
 		
+		
 		System.out.println(strMap.get("a"));
 		
 		for(String k : strMap.keySet())	 {
