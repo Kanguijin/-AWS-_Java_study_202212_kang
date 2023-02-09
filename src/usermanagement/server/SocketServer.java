@@ -18,22 +18,21 @@ import usermanagement.dto.ResponseDto;
 import usermanagement.entity.User;
 import usermanagement.server.controller.AccountController;
 
-public class SocketServer extends Thread{
-	
+public class SocketServer extends Thread {
+
 	private static List<SocketServer> socketServerList = new ArrayList<>();
-	
+
 	private Socket socket;
 	private InputStream inputStream;
 	private OutputStream outputStream;
 	private Gson gson;
-	
-	
+
 	public SocketServer(Socket socket) {
 		this.socket = socket;
 		gson = new Gson();
 		socketServerList.add(this);
 	}
-	
+
 	@Override
 	public void run() {
 		try {
@@ -42,37 +41,38 @@ public class SocketServer extends Thread{
 			System.out.println(socket.getInetAddress() + ":" + socket.getPort() + "클라이언트의 접속이 끊어졌습니다.");
 		}
 	}
-	
+
 	private void reciveRequest() throws IOException {
 		inputStream = socket.getInputStream();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-		
-		while(true) {
+
+		while (true) {
 			String request = reader.readLine();
-			if(request == null) {
+			if (request == null) {
 				throw new ConnectException();
 			}
-			
+
 			RequestMapping(request);
 		}
 	}
-	
+
 	private void RequestMapping(String request) throws IOException {
-		
+
 		RequestDto<?> requestDto = gson.fromJson(request, RequestDto.class);
 		String resource = requestDto.getResources();
 		switch (resource) {
 		case "register":
-			User user = gson.fromJson((String)requestDto.getBody(), User.class);
-			ResponseDto<?> responseDto = AccountController.getInstance().register(user);
-			sendResponse(responseDto);			
+		
+			ResponseDto<?> responseDto =
+				AccountController.getInstance().register((String) requestDto.getBody());
+			sendResponse(responseDto);
 			break;
 		default:
 			System.out.println("해당 요청은 처리할 수 없습니다.(404)");
 			break;
 		}
 	}
-	
+
 	private void sendResponse(ResponseDto<?> responseDto) throws IOException {
 		String response = gson.toJson(responseDto);
 		outputStream = socket.getOutputStream();
